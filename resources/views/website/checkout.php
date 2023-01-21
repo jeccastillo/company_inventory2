@@ -66,7 +66,7 @@
                     </table>
                 </div>
                 <div class="container px-5 my-5">
-                    <a class="btn btn-primary" href="/payment">
+                    <a class="btn btn-primary" href="/payment" v-if="!cart.length">
                         Pay Now
                     </a>
                 </div>

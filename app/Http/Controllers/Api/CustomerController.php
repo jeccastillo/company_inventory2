@@ -23,7 +23,7 @@ class CustomerController extends Controller
             return response()->json($data, 200);
             
         }catch(\Exception $e){
-            //dd($e);
+            dd($e);
             return response()->json('You must logged in!');
         }
                              

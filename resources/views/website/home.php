@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Business Frontpage - Start Bootstrap Template</title>
+    <title>Home</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="webtheme/assets/favicon.ico" />
 
@@ -41,14 +41,34 @@
                         <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Services</a></li>
 
-                        <li class="nav-item"><a class="nav-link welcome" href="#!" v-if=user.name>Welcome
-                                {{ user.name }}</a></li>
+                        
+                        
+
+                        <div class="dropdown d-inline-block user-dropdown" v-if=user.name>
+                            <a type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                
+                                <span class="d-none d-xl-inline-block ms-1 text-white">Welcome  {{ user.name }}</span>
+                                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                            </a>
+                            
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->                                  
+                                
+                                <a class="dropdown-item text-dark" href=""><i class="bi bi-person-circle"></i> Edit Profile</a>
+                                <a class="dropdown-item text-dark" href=""><i class="bi bi-unlock-fill"></i> Change Password</a>
+                                <a class="dropdown-item text-dark" href="checkout" v-if="cart.length"><i class="bi bi-cart-check-fill"></i> Check out</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" href="http://127.0.0.1:8000/admin/logout"><i class="bi bi-box-arrow-in-left"></i> Sign out</a>
+                            </div>
+                        </div>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="checkout"
                                 v-if=user.name>
-                                <i class="bi bi-cart4">{{ cart.length }}</i></a>
+                                <i class="bi bi-cart4" v-if="cart.length">{{ cart.length }}</i></a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/admin/logout"
-                                v-if=user.name>Log out</a></li>
+
+
+                        
 
                     </ul>
                 </div>
@@ -59,18 +79,21 @@
             <div class="container px-5">
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-12">
-                        <div class="text-center my-5">
-                            <h1 class="display-5 fw-bolder text-white mb-2">Present your business in a whole new way
+                        <div class="text-center mt-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">
+                                CAPARAL APPLIANCES & FURNITURES
                             </h1>
+                            <h3 class="fw-bolder  mb-2 mb-5" style="color:#e5e0dc;">We make your home complete.</h3>
                             <!-- <div class="text-center">
                                 <img src="https://scontent.fmnl8-2.fna.fbcdn.net/v/t39.30808-6/278668570_1864937593716044_8002696076047076020_n.png?_nc_cat=103&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeHdliHCbTvKIMntyyxrZHd_azH7cLZU4mBrMftwtlTiYKJGZgimfVi4BLTy4MptpUA&_nc_ohc=ykmg6tB7g20AX8fFyPi&_nc_ht=scontent.fmnl8-2.fna&oh=00_AfCSlq9Ghau1YZ5A3AOkwy5dCp42myv_OqdbzOMIj5vrow&oe=63C662D4" alt="error" width="100%">
                             </div> -->
 
                             
-                            <p class="lead text-white-50 mb-4">Quickly design and customize responsive mobile-first
-                                sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
-                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="login" v-if=!user.name>Sign in</a>
+                            <p class="lead text-white-50 mb-4">
+                                Caparal Appliances & Furniture will create a future full of color, bettering the lives of its customers and society with the quality and affordability of our home furnishings. Through our commitment to quality and social responsibility we aim to exceed our limits and create continuous improvement. We will go beyond difficult goals by engaging and nurturing the talent and passion of people who believe in positive change.
+                            </p>
+                            <div class="d-grid gap-5 d-sm-flex justify-content-sm-center pt-4 ">
+                                <a class="btn btn-primary btn-lg px-4 me-sm-3 " href="login" v-if=!user.name>Sign in</a>
                                 <a class="btn btn-outline-light btn-lg px-4" href="register" v-if=!user.name>Sign up</a>
                             </div>
                         </div>
@@ -84,12 +107,12 @@
             <div class="container px-5 my-5">
                 <div class="text-center mb-5">
 
-                    <h2 class="fw-bolder">Shop Now</h2>
+                    <h2 class="fw-bolder">Complete your Home today with Caparal Appliances & Furniture!</h2>
                     <!-- <p class="lead mb-0">With our no hassle pricing plans</p> -->
                 </div>
-                <div class="row gx-5 justify-content-center">
+                <div class="row gx-5 justify-content-center ">
                     <!-- Pricing card free-->
-                    <div v-for="appliance in appliances" class="col-lg-6 col-xl-4">
+                    <div v-for="appliance in appliances" class="col-lg-6 col-xl-4 pt-5">
                         <div class="card mb-5 mb-xl-0">
                             <div class="card-body p-5">
                                 <div class="small text-uppercase fw-bold text-muted">Free</div>
