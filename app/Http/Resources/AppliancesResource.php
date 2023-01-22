@@ -19,8 +19,7 @@ class AppliancesResource extends JsonResource
             "id" => $this->id,                
             "description" => $this->description,                                 
             "product_model" => $this->product_model,
-            "price" => @$this->getDeliveries->srp,  
-            "qty" => count(this->getWorkingStock),                              
+            "price" => @$this->getDeliveries->srp,                                         
         ];
     }
 }

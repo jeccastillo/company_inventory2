@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use App\Models\{AppliancesSales, CartItems}; 
-use App\Models\FurnitureSales;
+use App\Models\{AppliancesSales, CartItems, Appliances}; 
+use App\Models\{FurnitureSales};
 use App\Http\Controllers\Controller;
 use App\Http\Resources\{UserResource, CartItemResource};
 use App\Models\{Orders, OrderCustomer};
@@ -34,13 +34,20 @@ class CustomerController extends Controller
         $user = Auth::user();
 
         $productId = $request->product_id;
+        $product = Appliances::find($productId);
+        $cartItemsPerProduct = $user->cartItemsProduct($productId)->count();
+        $workingStocks = $product->getWorkingStock->count();
 
-        $newCartItem = new CartItems();
+        if($cartItemsPerProduct < $workingStocks){
+            $newCartItem = new CartItems();
 
-        $newCartItem->product_id = $productId;
-        $newCartItem->user_id = $user->id;
-        $newCartItem->save();
-        $data['success'] = true;
+            $newCartItem->product_id = $productId;
+            $newCartItem->user_id = $user->id;
+            $newCartItem->save();
+            $data['success'] = true;
+        }
+        else
+            $data['success'] = false;
         return response()->json($data, 200);
     }
    

@@ -285,7 +285,7 @@
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
         integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
@@ -331,12 +331,19 @@
 
             methods: {
                 addToCart: function (id) {
-                    this.cart.push(id);
-                    console.log(this.cart);
                     this.request.product_id = id;
                     axios.post(api_url + 'add-to-cart', this.request)
                         .then((data) => {
-                            console.log(data.data);
+                            if(!data.data.success){
+                                Swal.fire({
+                                    title: "Failed",
+                                    text: "Item not in stock",
+                                    icon: "error"
+                                })
+                            }
+                            else
+                                this.cart.push(id);
+                                
                         })
                 },
                 removeFromCart: function (id) {
