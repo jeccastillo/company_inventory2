@@ -26,7 +26,7 @@ class AppliancesDeliveries extends Model
     public function getProducts(){
         return $this->belongsTo(Appliances::class,'product_model_id','id');    
     }
-
+    
     public function getSerials(){
         return $this->belongsTo(Serials::class,'serial_number', 'id');
     }

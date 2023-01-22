@@ -27,9 +27,10 @@ class AuthenticatedSessionController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(LoginRequest $request)
-    {
+    {                        
         
         $request->authenticate();
+        
         
         $request->session()->regenerate();
 
@@ -39,8 +40,8 @@ class AuthenticatedSessionController extends Controller
             'message' => 'User Login Successfully', 
             'alert-type' => 'success'
         );
-
-        //return redirect()->intended(RouteServiceProvider::HOME)->with($notification);
+        
+        return redirect()->intended(RouteServiceProvider::HOME)->with($notification);
     }
 
     /**

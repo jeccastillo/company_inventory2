@@ -41,7 +41,7 @@
     
                         <div class="p-3">
      
-
+    <x-auth-validation-errors class="mb-4 text-danger" :errors="$errors" />
  <form class="form-horizontal mt-3" method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -101,29 +101,29 @@
 
         <script src="{{ asset('backend/assets/js/app.js') }}"></script>
 
-         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" ></script>
 <script>
- @if(Session::has('message'))
- var type = "{{ Session::get('alert-type','info') }}"
- switch(type){
-    case 'info':
-    toastr.info(" {{ Session::get('message') }} ");
-    break;
+    @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type','info') }}"
+        switch(type){
+            case 'info':
+            toastr.info(" {{ Session::get('message') }} ");
+            break;
 
-    case 'success':
-    toastr.success(" {{ Session::get('message') }} ");
-    break;
+            case 'success':
+            toastr.success(" {{ Session::get('message') }} ");
+            break;
 
-    case 'warning':
-    toastr.warning(" {{ Session::get('message') }} ");
-    break;
+            case 'warning':
+            toastr.warning(" {{ Session::get('message') }} ");
+            break;
 
-    case 'error':
-    toastr.error(" {{ Session::get('message') }} ");
-    break; 
- }
- @endif 
+            case 'error':
+            toastr.error(" {{ Session::get('message') }} ");
+            break; 
+        }
+    @endif 
 </script>
 
     </body>

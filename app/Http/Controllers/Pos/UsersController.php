@@ -50,7 +50,7 @@ class UsersController extends Controller
                 'mobile_no' => $request->mobile_no,
                 'email' => $request->email,
                 'username' => $request->username,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
                 'role' => $request->role,                
                 'created_by' => Auth::user()->id,            
                 'created_at' => Carbon::now()            

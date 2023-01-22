@@ -311,7 +311,7 @@
 
                 axios.get(api_url + 'customer')
                     .then((data) => {
-                        console.log(data);
+                        //console.log(data);
                         this.user = data.data;
                         for (i in data.data.cart)
                             this.cart.push(data.data.cart[i].product_id);
@@ -319,6 +319,7 @@
 
                 axios.get(api_url + 'appliances')
                     .then((data) => {
+                        console.log(data);
                         this.appliances = data.data.data;
                     })
 

@@ -10,6 +10,7 @@ use App\Models\Appliances;
 use App\Models\AppliancesCategories;
 use App\Models\Supplier;
 use App\Models\Brands;
+use App\Models\AppliancesWorkingStocks;
 use App\Http\Resources\AppliancesResource;
 
 

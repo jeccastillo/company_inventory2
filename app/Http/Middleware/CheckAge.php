@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Auth;
 
 class CheckAge
 {
@@ -16,8 +17,10 @@ class CheckAge
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->check <=20){
-            return redirect('contact');
+        
+        if(Auth::user()->role == 0 || Auth::user()->role == 2){
+            return redirect('/');
+            
         }
 
         return $next($request);

@@ -99,7 +99,7 @@
                 </div>
                 <div class="container px-5 my-5">
                     <a class="btn btn-primary" href="/payment" v-if="user.cart.length">
-                        Pay Now 
+                        Checkout
                     </a>
                 </div>
             </section>

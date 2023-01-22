@@ -21,16 +21,19 @@
                  </li>
                  <hr>
                  <!-- ____________TO IMPLEMENT ___________________________-->
-                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="fas fa-user-cog"></i>
-                        <span>Manage Users</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href={{ route('users.all') }}>All Users</a></li>
-                    </ul>
-                </li><!-- end Manage Users -->
-                <hr>
+                 @if(Auth::user()->id == 1)
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="fas fa-user-cog"></i>
+                            <span>Manage Users</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href={{ route('users.all') }}>All Users</a></li>
+                        </ul>
+                    </li><!-- end Manage Users -->
+                    <hr>
+                @endif
+                
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="fas fa-tasks"></i>
