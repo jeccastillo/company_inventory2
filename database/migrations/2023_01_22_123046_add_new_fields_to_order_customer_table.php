@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('order_customers', function (Blueprint $table) {
-            $table->id();
-            $table->integer('order_id');
-            $table->integer('product_id');
-            $table->double('amount');
-            $table->timestamps();            
+        Schema::table('order_customers', function (Blueprint $table) {            
+            $table->enum('status', ['new', 'packed', 'delivered'])->default('new');
+            $table->integer('working_stock_id')->nullable();
+
+
         });
     }
 
@@ -29,6 +28,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_customers');
+        Schema::table('order_customer', function (Blueprint $table) {
+            //
+        });
     }
 };

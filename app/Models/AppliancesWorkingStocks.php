@@ -10,6 +10,11 @@ class AppliancesWorkingStocks extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function scopeFilterByAvailable($query)
+    {        
+        $query->where('status', 0);
+    }
+
     public function getProduct(){
         return $this->belongsTo(Appliances::class, 'product_model_id', 'id');
     }//end of function

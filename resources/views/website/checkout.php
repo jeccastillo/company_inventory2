@@ -53,7 +53,7 @@
                                     <a class="dropdown-item text-dark" href="checkout" v-if="cart.length"><i
                                             class="bi bi-cart-check-fill"></i> Check out</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item text-danger" href="http://127.0.0.1:8000/admin/logout"><i
+                                    <a class="dropdown-item text-danger" href="/admin/logout"><i
                                             class="bi bi-box-arrow-in-left"></i> Sign out</a>
                                 </div>
                             </div>

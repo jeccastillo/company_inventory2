@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\POS\CategoriesController;
 use App\Http\Controllers\POS\StocksController;
 use App\Http\Controllers\POS\UsersController;
+use App\Http\Controllers\POS\OrdersController;
 use App\Http\Controllers\POS\MerchandiseReturnSlipController;
 use App\Http\Controllers\POS\AppliancesDeliveriesController;
 use App\Http\Controllers\POS\BrandsController;
@@ -54,11 +55,11 @@ Route::middleware('auth')->get('/payment', [CustomerController::class, 'customer
 
 
 
-
-
-Route::controller(DemoController::class)->group(function () {
-    Route::get('/about', 'Index')->name('about.page')->middleware('check');
-    Route::get('/contact', 'ContactMethod')->name('cotact.page');    
+Route::controller(OrdersController::class)->group(function () {
+   Route::get('/orders', 'viewAllOrders')->name('orders.all');
+   Route::get('/orders/{id}', 'viewOrder')->name('orders.view');
+   Route::post('/orders/update_item', 'orderPackItem')->name('order.packItem');   
+   Route::post('orders/delivered', 'orderDelivered')->name('order.delivered');
 });
 
 

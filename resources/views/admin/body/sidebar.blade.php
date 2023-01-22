@@ -19,6 +19,15 @@
                          <span>Dashboard</span>
                      </a>
                  </li>
+                 <li>
+                    
+                    <a href="{{ url('/orders') }}" class="waves-effect">
+                       <i class="fas fa-tachometer-alt"></i>
+                        {{-- <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-success float-end">3</span> --}}
+                        <span>Manage Orders</span>
+                    </a>
+                </li>
+                 
                  <hr>
                  <!-- ____________TO IMPLEMENT ___________________________-->
                  @if(Auth::user()->id == 1)
@@ -46,6 +55,8 @@
                         <li><a href={{route('furnitureCategories.all')}} >Furnitures</a></li>
                     </ul>
                 </li><!-- end Manage Categories -->
+
+                
                 
                 
                 <!-- ____________TO IMPLEMENT ___________________________-->

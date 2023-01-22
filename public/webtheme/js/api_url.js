@@ -6,4 +6,4 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 
-var api_url = "http://127.0.0.1:8000/";
+var api_url = "http://localhost:8000/";

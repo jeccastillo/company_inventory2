@@ -30,6 +30,10 @@ class Appliances extends Model
         return $this->hasMany(Serials::class,'product_id','id');
     }
 
+    public function getWorkingStock(){
+        return $this->hasMany(AppliancesWorkingStocks::class,'product_model_id','id')->where('status',0);
+    }
+
     public function getBrand(){
         return $this->belongsTo(Brands::class, 'brand_id','id');
     }
